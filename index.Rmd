@@ -1,0 +1,85 @@
+---
+title: "Rationale em Fóruns de Discussão como Suporte à atualização de Software em Plataformas de Educação Online"
+subtitle: "Metodologia"
+number_sections: true
+author:
+- name: "Tiago Clementino"
+- name: "Antão Moura"
+date: "`r format(Sys.Date(), '%d de %B de %Y')`"
+output:
+  prettydoc::html_pretty:
+    toc: true
+    theme: yixuan
+    highlight: vignette
+    fig_width: 6 
+    fig_height: 4.5 
+    keep_tex: yes
+vignette: >
+  %\VignetteIndexEntry{Creating Pretty Documents from R Markdown - The Leonids Theme}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+---
+
+# Introdução
+
+Esta página descreve em mais detalhes a metodologia de pesquisa usada no artigo *Rationale in Forum Discussions as Support for Software Upgrading of Online Course Platforms*, de autoria de Tiago Lucas Pereria Clementino e José Antão Beltrão Moura.
+
+Breve introdução (quase um abstract) e desclamer sobre o fato de ser uma pesquisa qualitativa exploratória.
+
+Em plataformas de MOOC (do inglês, Massive Open Online Courses), o fórum tem sido uma important fonte de feedback em aspectos pedagógicos. Por outro lado, avaliações de estudantes e instrutores compartilhadas espontaneamente no fórum -- em termos de críticas, recomendações e solicitações -- podem dizer respeito ao ferramental de software da plataforma. Tais avaliações assemelham-se em muitoas aspectos àquilo que é definido como *rationale*, um conceito bastante útil em evolução e documentação de software. Este conceito parece ter sido subutilizado para a elicitação de requisitos de software para atualização e manutenção de plataformas de MOOC. Nosso objetivo com este estudo foi identificar a presença de "*user rationale*" espontaneamente compartilhado em fóruns de MOOC e avaliar -- de modo preliminar -- sua aplicação como instrumento de coleta de requisitos de suporte ao ferramental de software de plataformas de MOOC.
+
+A metodologia de pesquisa utiizada envolve três fases: 1) Minerar *rationale* de dados históricos de fóruns oferecidos com um intervalo de quatro anos separandu-os (2014 e 2018) na plataforma edX (link); 2) Buscar manualmente denrte as *release notes* da plataforma edX evidências de o resultado da fase anterior está relacionados a melhorias feitas na plataforma ao longo dos ultimos quatro anos; e, 3) Intrevistar participantes recentes de MOOC para verificar suas percepções da relevância do conteúdo minerado na forma de *rationale* como instrumnto de elicitação de requisitos de suporte ao ferramental de software da plataforma de MOOC.
+
+De acordo com nossas obervações, podemos concluir que há uma possível correlação entre o *rationale* minerado e as demandas por suporte de software observadas tanto dentre os entrevistados quanto dentre as *release notes*.
+
+# Metodologia
+
+Nosso objetivo é responder a seguinte questão de pesquisa: *O rationale extraído em postagens de fóruns de MOOC pode dar suporte à manutenção do ferramental de software da sua plataforma educacional?* Diante deste objetivo, a metodologia aplicada pode ser descrita conforme a figura abaixo.
+
+#### Diagrama da Metodologia {align=center}
+![](images\diagrama_metodologia_2.png)
+
+# Coleta de Dados e Extração de *Rationale* {align=left}
+
+Fale das duas bases de dados, da origem da primeira e do porquê da segunda ser pequena.
+
+Para a primeira fase do estudo, foi coletado dois conjuntos de dados históricos de fóruns de postagens de MOOc. O primeiro, fruto de 12 cursos oferecidos pela Universidade de Stanford (link) na plataforma edX entre 2013 e 2014; e, o segundo, com postagens de 1.074 cursos oferecidos de provedores de conteúdo educacional diversos, também na plataforma edX em Novembro de 2018. Daqui para frente faremos referência ao primeiro conjunto de dados como D1 (link para download), sendo o segundo conjunto de dados denominado D2 (link para download) a partir de agora. Todo o "*user rationale*" tratado neste estudo foi minerado manualmente destas duas bases de dados.
+
+## D1 (link para download)
+
+D1 engloba três áreas do conhecimento: Ciências Humanas, Medicina e Educação, em um total de 29.604 postagens agrupadas em 22.804 discussões. Tais discussões podem ser caracterizadas como: 20.268 tendo apenas uma postagem, 2.208 com duas a cinco postagens, 179 com seis a 10 postagens e 48 com mais de onze postagens. Estes dados foram originalmente utilizados em [1], tendo sido tratados manualmente para evitar a identificação dos autores das postagens. 
+
+O procedimento de mineração de *rationale* nestes dados segue uma cadeia simples: idenficiar os primeiros *rationale* com base em palavras chave simples; repetir o processo agragando novas palavras chave colhidas nos *rationale* já identificados; e, decodificar temas recorrentes em *rationale*. Vide o procedimento com mais detalhes abaixo:
+
+### Minerando *Rationale* em D1
+
+A mineração de *rationale* em D1 ocorreu manualmente. Para tal, foi utilizado um conjunto de termos iniciais simples que evoluiu gradualmente por *snowballing*. Buscas foram realizadas a partir do conjunto de termos inicial que evoluiu gradualmente a partir de novos termos identificados em novos *rationale* -- novos termos foram adicionados e termos saturados foram excluídos. Os conjuntos inicial e final estão descritos abaixo.
+
+#### Conjuntos de Termos da Busca por *Rationale* {align=center}
+| Conjunto de Termos Inicial                                                                    | Conjunto de Termos Total                       |
+|-----------------------------------------------------------------------------------------------|------------------------------------------------|
+| platform, thread, post, discuss(ion), forum, navigat(e)(ion), user, student, MOOC             | helpful, platform, module, review(er), learn(ing)(er), thread, post, discuss(ion), forum, navigat(e)(ion), user, student, friendly, MOOC, Coursera, (Open)edX, interface, comment, idea, categor(y)(ies), frustrat(e)(ing)(ion), disappoint(ing), maint(aining)(einance), point, automatic(ally), feedback, system, (dis)(en)courage, (un)read, assess(ment)                                                |
+
+
+
+## D2 (link para download) {align=left}
+
+Aqui os dados não são compostos por registros históricos automáticos de fóruns de MOOc, mas por postagens coletadas nanualmente diretamente pela interface da plataforma edX. Tais postagens deriam obedecer os seguintes critérios: estarem disponíveis no fórum em canais públicos para críticas e sugestões -- critério necessário para garantir a viabilidade da busca; e, integrar cursos listados como "*current*" ou "*archived*" em Novembro de 2018 -- critério necessário para posiionar nossos dados adequadamente no tempo, mantendo distância cronológica da base de dados anterior. Um total de 1.074 cursos das mais variadas áreas foram analisados. Destes 1.074 cursos, apenas 87 de fato contribuiram para D2. Isto se deve ao fato de que aqui as tarefas de coleta de dados e mineração de *rationale* foram executadas ao mesmo tempo.
+
+O procedimento de mineração de *rationale* dentre os fóruns foi feito item por item, lendo todas as postagens na integra e selecionando o *rationale* com base na definição apresentada em [dicionário]. Inicialmente, buscou-se um conjunto dados históricos semelhante à D1, porém, em virtude do requisito de atualidade dos dados muito restritivo -- buscavamos dados tão recentes quanto possível -- não identificamos nenhuma conjunto de dados adequado e, como alternativa, decidimos construir nosso próprio.
+
+# Busca por *Release Notes*
+
+Methodology
+
+# Entrevistas
+
+Methodology
+
+## Questionário
+
+## Dados das Entrevistas
+
+Describe the audios, but do not make those availabe for protecting the identity of interviewees
+
+# Conectando Tudo
